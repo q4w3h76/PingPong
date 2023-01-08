@@ -6,6 +6,10 @@
 game::game(sf::RenderWindow* window)
  :  m_window(window), m_player2(sf::Keyboard::W, sf::Keyboard::S), m_pause(true)
 {
+    // init sound
+    if(!m_buffer.loadFromFile("../res/jump.wav"))
+        std::cerr << "can't load sound from file" << std::endl;
+    m_sound.setBuffer(m_buffer);
     // init font 
     if(!m_font.loadFromFile("../res/roboto.ttf"))
         std::cerr << "can't load font from file" << std::endl;
@@ -52,13 +56,19 @@ void game::collision()
     if((pos_ball.x <= pos_plr.x+20)&&
         (pos_ball.y >= pos_plr.y)&&
         (pos_ball.y <= pos_plr.y+150))
+    {
         m_ball.apply_force({force, m_player1.get_direction()*force});
+        m_sound.play();
+    }
     // checking collision between ball and player2
     pos_plr = m_player2.getPosition();
     if((pos_ball.x >= pos_plr.x-20)&&
         (pos_ball.y >= pos_plr.y)&&
         (pos_ball.y <= pos_plr.y+150))
+    {
         m_ball.apply_force({-force, m_player2.get_direction()*force});
+        m_sound.play();
+    }
 }
 
 void game::control()

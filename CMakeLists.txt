@@ -13,5 +13,5 @@ add_executable(PingPong ${SRC_PATH}main.cpp ${SRC_PATH}game.hpp ${SRC_PATH}game.
                 ${SRC_PATH}physics.hpp ${SRC_PATH}physics.cpp
                 ${SRC_PATH}player.hpp ${SRC_PATH}player.cpp)
 
-target_link_libraries (PingPong sfml-graphics sfml-window sfml-system)
+target_link_libraries (PingPong sfml-graphics sfml-audio sfml-window sfml-system)
 target_include_directories (PingPong PRIVATE external/SFML/include)

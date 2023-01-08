@@ -4,6 +4,8 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Font.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
+#include <SFML/Audio/Sound.hpp>
 #include "player.hpp"
 #include "ball.hpp"
 
@@ -14,6 +16,8 @@ class game
     sf::Font m_font;
     sf::Text m_text;
     sf::Text m_text_score;
+    sf::SoundBuffer m_buffer;
+    sf::Sound m_sound;
     sf::RenderWindow* m_window;
     bool m_pause;
 public:
