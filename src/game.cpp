@@ -82,7 +82,7 @@ void game::control()
             // random number is 0 or 1
             int num = rand() % 2;
             // if random number is 0, then direction of ball will be left
-            m_ball.apply_force({(num == 0) ? -100 : 100, 0});
+            m_ball.apply_force({(num == 0) ? -100.f : 100.f, 0});
             m_pause = false;
         }
     // press R bar to restart game
